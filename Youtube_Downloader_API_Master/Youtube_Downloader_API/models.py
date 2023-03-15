@@ -1,18 +1,18 @@
-# 置入需要用到的工具
+# Import necessary tools
 from . import db
 
-# 定義資料庫的物件
+# Define the database object
 class Video(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   views = db.Column(db.Integer)
   author = db.Column(db.String(255))
-  video_title = db.Column(db.String(255))  
+  video_title = db.Column(db.String(255))
 
-  # 定義Video物件的初始值
+  # Define the initial values for the Video object
   def __init__(self, views, author, video_title):
-    # 資料庫會自動產生新的id，所以不用我們給初始值
-    # 這邊的self.views就是第7行的views
-    # 用self. 來區別這個models檔案裡面的變量跟__init__裡面的參數
-    self.views = views # views是第12行的參數名字
+    # The database will automatically generate a new id, so we don't need to provide an initial value
+    # self.views here refers to the 'views' on line 7
+    # Use 'self.' to distinguish variables in this models file from the parameters in the __init__ method
+    self.views = views  # 'views' is the parameter name on line 12
     self.author = author
     self.video_title = video_title
